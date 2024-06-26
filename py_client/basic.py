@@ -2,12 +2,12 @@ import requests
 from pprint import pprint
 
 # endpoint = "http://httpbin.org/status/200"
-endpoint = "http://localhost:8000/api/"
+endpoint = "http://localhost:8000/api/products/1/"
 
-get_response = requests.get(
+response = requests.post(
     endpoint,
-    params={"abc": 123},
-    json={"query": "Django"},
+    json={"title": "ABC123", "content": "Hello World", "price": "123USD"},
 )
-pprint(get_response.text)
-print(get_response.status_code)
+
+pprint(response.headers)
+pprint(response.json())
